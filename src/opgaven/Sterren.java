@@ -8,8 +8,8 @@ package opgaven;
 public class Sterren {
 
     public static void main(String[] args) {
-        //printSterren(8);
-        //printSterren(2);
+        printSterren(8);
+        printSterren(2);
         
         int[] sterren = { 4, 5, 9, 2 };
         for (int s : sterren ) {
