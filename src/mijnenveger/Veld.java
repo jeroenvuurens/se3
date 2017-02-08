@@ -11,13 +11,25 @@ public class Veld {
 
     public static void main(String[] args) {
         boolean[][] veld = new boolean[5][5];
-        int aantalbommen = 4;
         Random random = new Random();
+        //random.setSeed(0);
         
-        int rij = random.nextInt(5);
-        int kolom = random.nextInt(5);
-        veld[rij][kolom] = true;
+        int aantalbommen = 4;
+        while (aantalbommen > 0) {
+            int rij = random.nextInt(5);
+            int kolom = random.nextInt(5);
+            if ( !veld[rij][kolom] ) {
+                veld[rij][kolom] = true;
+                aantalbommen--;
+            }
+        }
+        
         printVeld(veld);
+    }
+    
+    // maak onderstaande functie
+    public static int aantalBommen(int[][] veld, int rij, int kolom) {
+        return 0;
     }
     
     public static void printVeld(boolean[][] veld) {
