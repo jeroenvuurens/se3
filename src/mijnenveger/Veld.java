@@ -25,11 +25,33 @@ public class Veld {
         }
         
         printVeld(veld);
+        System.out.println(aantalBommen(veld, 0, 0));
     }
     
     // maak onderstaande functie
-    public static int aantalBommen(int[][] veld, int rij, int kolom) {
-        return 0;
+    // een 2D array met voor elke (rij, kolom) het aantal
+    // bommen in naastgelegen velden
+    public static int[][] bomaantallen(boolean[][] veld) {
+        return null;
+    }
+    
+    public static void printAantallen(int[][] aantallen) {
+        
+    }
+    
+    public static int aantalBommen(boolean[][] veld, int rij, int kolom) {
+        int aantal = 0;
+        for (int i = rij -1; i <= rij + 1; i++){
+            for (int j = kolom -1; j <= kolom + 1; j++){
+                if(i >= 0 && i <= 4 && j >= 0 && j <= 4 && !(i == rij && j == kolom)){
+                    if (veld[i][j])
+                    {
+                        aantal++;
+                    }
+                }
+            }
+        }
+        return aantal;
     }
     
     public static void printVeld(boolean[][] veld) {
