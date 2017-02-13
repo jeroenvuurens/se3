@@ -25,7 +25,7 @@ public class Veld {
         }
         
         printVeld(veld);
-        System.out.println(aantalBommen(veld, 0, 0));
+        System.out.println(aantalBommen(veld, 1, 1));
     }
     
     // maak onderstaande functie
