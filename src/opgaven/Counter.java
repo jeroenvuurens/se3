@@ -1,7 +1,9 @@
 package opgaven;
 
 /**
- *
+ * Dit is een TallyCounter die kan 
+ * worden verhoogd met 1 en kan worden uitgelezen.
+ * 
  * @author Jeroen
  */
 public class Counter {
@@ -9,6 +11,9 @@ public class Counter {
     private int value;
     private int limit = Integer.MAX_VALUE;
     
+    /**
+     * Verhoogt de Counter met 1
+     */
     public void count() {
         if (value < limit)
             value++;
@@ -16,6 +21,10 @@ public class Counter {
             System.out.println("Limit Exceeded");
     }
     
+    /**
+     * 
+     * @return de huidige waarde van de Counter
+     */
     public int getValue() {
         return value;
     }
