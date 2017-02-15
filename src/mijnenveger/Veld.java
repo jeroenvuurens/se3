@@ -17,8 +17,7 @@ public class Veld {
         this.aantalRijen = aantalRijen;
         this.aantalMijnen = aantalMijnen;
  
-        veld = new boolean[aantalRijen][aantalRijen];
- 
+        legMijnen();
     }
  
     public void toonVeld() {
@@ -27,11 +26,24 @@ public class Veld {
         }
     }
  
-    public static void printRijMijnen(boolean[] rij) {
+    private void printRijMijnen(boolean[] rij) {
         for (boolean bom : rij) {
             System.out.print(bom ? '*' : '-');
         }
         System.out.println();
+    }
+    
+    private void legMijnen() {
+        veld = new boolean[aantalRijen][aantalRijen];
+        Random random = new Random();
+        while (aantalMijnen > 0) {
+            int rij = random.nextInt(aantalRijen);
+            int kolom = random.nextInt(aantalRijen);
+            if (!veld[rij][kolom]) {
+                veld[rij][kolom] = true;
+                aantalMijnen--;
+            }
+        }
     }
  
     public static void main(String[] args) {
