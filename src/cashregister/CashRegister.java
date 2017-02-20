@@ -51,7 +51,7 @@ public class CashRegister {
         CashRegister cr = new CashRegister();
         Item item = new Item("Spaghetti", 1.99);
         cr.addItem(item);
-        item = new Item("Spaghettisaus", 2.99);
+        item = new Fruit("Appel", 2.99, 100);
         cr.addItem(item);
         cr.printReceipt();
         System.out.println("\t\t\t" + cr.getTotal());

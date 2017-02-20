@@ -14,8 +14,13 @@ public class Item {
        return price;
    }
    
+   protected String getName() {
+       return name;
+   }
+   
    public String toString() {
-       return name + "\t\t" + price;
+       return String.format("%s  %32.2f", 
+                getName(), getPrice());
    }
            
     public static void main(String[] args) {
