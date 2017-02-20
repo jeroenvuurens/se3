@@ -35,14 +35,22 @@ public class Vak {
     }
     
     private int telMijnenBuren() {
-        
+        int aantalMijnen = 0;
+        for (int i = 0; i < buren.size(); i++) {
+            Vak buurman = buren.get(i);
+            if (buurman.isMijn) {
+                aantalMijnen++;
+            }
+        }
+        return aantalMijnen;   
     }
 
     public static void main(String[] args) {
         Vak vak1 = new Vak();
         Vak vak2 = new Vak();
         Vak vak3 = new Vak();
-        vak2.legMijn();
+        vak1.legMijn();
+        //vak3.legMijn();
         vak1.addBuurman(vak2);
         vak1.addBuurman(vak3);
         System.out.println(vak1); // -
