@@ -1,5 +1,6 @@
 package mijnenveger;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -48,6 +49,15 @@ public class Veld {
         veld[0][0].addBuurman(veld[1][1]);
     }
 
+    private ArrayList<Vak> geefBuren(int rij, int kolom) {
+        ArrayList<Vak> buren = new ArrayList();
+        if (rij > 0)
+            buren.add(veld[rij-1][kolom]);
+        if (rij > 0 && kolom > 0)
+            buren.add(veld[rij-1][kolom-1]);
+        return buren;
+    }
+    
     
     private void legMijnen() {
         Random random = new Random(0);
