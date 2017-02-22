@@ -1,6 +1,6 @@
 package cashregister;
 
-public class Item {
+public class Item implements Comparable<Item> {
 
    private String name;
    private double price;
@@ -9,6 +9,15 @@ public class Item {
        this.name = name;
        this.price = price;
    }
+    
+    @Override
+    public int compareTo(Item o) {
+       if (this.getPrice() < o.getPrice())
+           return -1;
+       if (this.getPrice() > o.getPrice())
+           return 1;
+       return 0;
+    }
     
    public double getPrice() {
        return price;

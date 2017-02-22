@@ -14,6 +14,7 @@ public class Fruit extends Item {
         this.grams = grams;
     }
     
+    @Override
     public double getPrice() {
         return super.getPrice() * grams / 1000;
     }

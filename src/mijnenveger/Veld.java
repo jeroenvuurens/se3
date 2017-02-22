@@ -11,13 +11,13 @@ public class Veld {
 
     private int aantalRijen;
     private int aantalMijnen;
-    private boolean[][] veld;
+    private Vak[][] veld;
  
     public Veld(int aantalRijen, int aantalMijnen) {
         this.aantalRijen = aantalRijen;
         this.aantalMijnen = aantalMijnen;
  
-        legMijnen();
+        maakVeld();
     }
  
     public void toonVeld() {
@@ -26,21 +26,29 @@ public class Veld {
         }
     }
  
-    private void printRijMijnen(boolean[] rij) {
-        for (boolean bom : rij) {
-            System.out.print(bom ? '*' : '-');
+    private void printRijMijnen(Vak[] rij) {
+        for (Vak vak : rij) {
+            System.out.print(vak);
         }
         System.out.println();
     }
+  
+    private void maakVeld() {
+        veld = new Vak[aantalRijen][aantalRijen];
+        for (int rij = 0; rij < aantalRijen; rij++)
+            for (int kolom = 0; kolom < aantalRijen; kolom++)
+                veld[rij][kolom] = new Vak();
+        legMijnen();
+    }
+
     
     private void legMijnen() {
-        veld = new boolean[aantalRijen][aantalRijen];
-        Random random = new Random();
+        Random random = new Random(0);
         while (aantalMijnen > 0) {
             int rij = random.nextInt(aantalRijen);
             int kolom = random.nextInt(aantalRijen);
-            if (!veld[rij][kolom]) {
-                veld[rij][kolom] = true;
+            if (! (veld[rij][kolom] instanceof Mijn) ) {
+                veld[rij][kolom] = new Mijn();
                 aantalMijnen--;
             }
         }
@@ -48,6 +56,8 @@ public class Veld {
  
     public static void main(String[] args) {
         Veld veld = new Veld(10, 5);
+        veld.veld[0][9].open();
+        System.out.println(veld.veld[0][9].getClass());
         veld.toonVeld();
  
     } 

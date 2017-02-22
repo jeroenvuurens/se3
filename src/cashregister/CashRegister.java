@@ -1,6 +1,7 @@
 package cashregister;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import opgaven.*;
 
 /**
@@ -38,6 +39,7 @@ public class CashRegister {
     }
     
     public void printReceipt() {
+        Collections.sort(items);
         for (Item item : items) {
             System.out.println(item);
         }
