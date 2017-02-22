@@ -39,6 +39,13 @@ public class Veld {
             for (int kolom = 0; kolom < aantalRijen; kolom++)
                 veld[rij][kolom] = new Vak();
         legMijnen();
+        zetBuren();
+    }
+    
+    private void zetBuren() {
+        veld[0][0].addBuurman(veld[0][1]);
+        veld[0][0].addBuurman(veld[1][0]);
+        veld[0][0].addBuurman(veld[1][1]);
     }
 
     
@@ -56,7 +63,7 @@ public class Veld {
  
     public static void main(String[] args) {
         Veld veld = new Veld(10, 5);
-        veld.veld[0][9].open();
+        veld.veld[0][0].open();
         System.out.println(veld.veld[0][9].getClass());
         veld.toonVeld();
  
