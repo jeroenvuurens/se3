@@ -51,10 +51,22 @@ public class Veld {
 
     private ArrayList<Vak> geefBuren(int rij, int kolom) {
         ArrayList<Vak> buren = new ArrayList();
-        if (rij > 0)
+        if (rij > 0) // boven
             buren.add(veld[rij-1][kolom]);
-        if (rij > 0 && kolom > 0)
+        if (rij > 0 && kolom > 0) // links boven
             buren.add(veld[rij-1][kolom-1]);
+        if (kolom > 0) // links
+            buren.add(veld[rij][kolom-1]);
+        if (rij < aantalRijen - 1 && kolom > 0) // links onder
+            buren.add(veld[rij+1][kolom-1]);
+        if (rij < aantalRijen - 1) // onder
+            buren.add(veld[rij+1][kolom]);
+        if (rij < aantalRijen - 1 && kolom < aantalRijen - 1) // rechts onder
+            buren.add(veld[rij+1][kolom+1]);
+        if (kolom < aantalRijen - 1) // rechts
+            buren.add(veld[rij][kolom+1]);
+        if (rij > 0 && kolom < aantalRijen - 1) // rechts boven
+            buren.add(veld[rij-1][kolom+1]);
         return buren;
     }
     
@@ -72,10 +84,11 @@ public class Veld {
     }
  
     public static void main(String[] args) {
-        Veld veld = new Veld(10, 5);
+        Veld veld = new Veld(5, 5);
         veld.veld[0][0].open();
-        System.out.println(veld.veld[0][9].getClass());
-        veld.toonVeld();
+        System.out.println(veld.veld[0][4].getClass());
+        //veld.toonVeld();
+        System.out.println(veld.geefBuren(4, 4));
  
     } 
     
