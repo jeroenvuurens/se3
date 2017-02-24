@@ -11,6 +11,10 @@ public class Vak {
         buren.add(buurman);
     }
 
+    
+    // als vakje nog niet geopend
+    // en 0 mijnen om vakje
+    // open buren van vakje
     public boolean open() {
         geopend = true;
         return geopend;
