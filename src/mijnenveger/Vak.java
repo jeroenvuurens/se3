@@ -11,12 +11,18 @@ public class Vak {
         buren.add(buurman);
     }
 
-    
     // als vakje nog niet geopend
     // en 0 mijnen om vakje
     // open buren van vakje
     public boolean open() {
-        geopend = true;
+        if (!geopend) {
+            geopend = true;
+            if (telMijnenBuren() == 0) {
+                for (Vak b : buren) {
+                    b.open();
+                }
+            }
+        }
         return geopend;
     }
 
@@ -27,7 +33,7 @@ public class Vak {
         }
         return telMijnenBuren() + "";
     }
-    
+
     private int telMijnenBuren() {
         int aantalMijnen = 0;
         for (int i = 0; i < buren.size(); i++) {
@@ -36,7 +42,7 @@ public class Vak {
                 aantalMijnen++;
             }
         }
-        return aantalMijnen;   
+        return aantalMijnen;
     }
 
     public static void main(String[] args) {

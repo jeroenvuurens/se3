@@ -40,8 +40,12 @@ public class Veld {
                 veld[rij][kolom] = new Vak();
             }
         }
-        legMijnen();
+        legMijnen(aantalMijnen);
         zetBuren();
+    }
+    
+    private boolean gewonnen() {
+        
     }
 
     private void zetBuren() {
@@ -92,7 +96,7 @@ public class Veld {
         return buren;
     }
 
-    private void legMijnen() {
+    private void legMijnen(int aantalMijnen) {
         Random random = new Random(0);
         while (aantalMijnen > 0) {
             int rij = random.nextInt(aantalRijen);
@@ -105,8 +109,9 @@ public class Veld {
     }
 
     public static void main(String[] args) {
-        Veld veld = new Veld(5, 5);
-        veld.veld[2][4].open();
+        Veld veld = new Veld(6, 5);
+        veld.veld[0][0].open();
+        veld.veld[3][4].open();
         System.out.println(veld.veld[0][4].getClass());
         veld.toonVeld();
         //System.out.println(veld.geefBuren(4, 4));
