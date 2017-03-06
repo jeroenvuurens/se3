@@ -10,17 +10,18 @@ public class Author {
     private int aantalBoeken;
     
     public Author(String name) {
+        this.name = name;
     }
     
     public String getName() {
-        return "";
+        return name;
     }
     
     protected void addBook() {
-        
+        aantalBoeken++;
     }
     
     public int getAantalBoeken() {
-        return 0;
+        return aantalBoeken;
     }
 }
