@@ -44,9 +44,9 @@ public class Veld {
         zetBuren();
     }
     
-    private boolean gewonnen() {
-        
-    }
+//    private boolean gewonnen() {
+//        
+//    }
 
     private void zetBuren() {
         for (int rij = 0; rij < aantalRijen; rij++) {

@@ -30,6 +30,10 @@ public class CashRegister {
         return itemCount;
     }
     
+    /**
+     * 
+     * @param price positive price
+     */
     public void addItem(double price) {
         itemCount++;
         totalPrice += price;

@@ -5,7 +5,7 @@ package opgaven;
  *
  * @author Jeroen
  */
-public class CashRegisterTest {
+public class CashRegisterTest2 {
 
     public static void main(String[] args) {
         CashRegister cr = new CashRegister(100);
