@@ -12,6 +12,8 @@ public class Book {
     private ArrayList<Author> authors;
     
     public Book(String title) {
+        this.title = title;
+        this.authors = new ArrayList();
     }
     
     /**
@@ -19,14 +21,14 @@ public class Book {
      * @param author 
      */
     public void addAuthor(Author author) {
-        
+        authors.add(author);
     }
     
     /**
      * @return number of authors of book
      */
     public int countAuthors() {
-        return 0;
+        return authors.size();
     }
     
     /**
@@ -34,6 +36,6 @@ public class Book {
      * @return true if author is in authors of book
      */
     public boolean isAuthorOf(Author author) {
-        return false;
+        return authors.contains(author);
     }
 }
