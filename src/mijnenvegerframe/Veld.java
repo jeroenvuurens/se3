@@ -35,6 +35,7 @@ public class Veld extends JFrame {
     }
 
     private void initComponents() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(200, 200);
         panel = new JPanel();
         panel.setLayout(null);
