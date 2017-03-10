@@ -1,8 +1,10 @@
 package mijnenvegerframe;
 
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,6 +15,8 @@ public class Veld extends JFrame {
     private int aantalRijen;
     private int aantalMijnen;
     private Vak[][] vak;
+    private JPanel panel;
+    private final int SIZE = 30;
 
     public Veld(int aantalRijen, int aantalMijnen) {
         this.aantalRijen = aantalRijen;
@@ -21,8 +25,23 @@ public class Veld extends JFrame {
         maakVeld();
         initComponents();
     }
-    
+
+    private void plaatsRij(int rij) {
+        for (int i = 0; i < this.aantalRijen; i++) {
+            panel.add(vak[rij][i]);
+            vak[rij][i].setSize(SIZE, SIZE);
+            vak[rij][i].setLocation(SIZE * i, SIZE * rij);
+        }
+    }
+
     private void initComponents() {
+        this.setSize(200, 200);
+        panel = new JPanel();
+        panel.setLayout(null);
+        this.add(panel);
+
+        for (int i = 0; i < this.aantalRijen; i++)
+            plaatsRij(i);
         // set size op JFrame
         // panel op JFRame zetten
         // vakken op panel zetten
@@ -51,11 +70,10 @@ public class Veld extends JFrame {
         legMijnen(aantalMijnen);
         zetBuren();
     }
-    
+
 //    private boolean gewonnen() {
 //        
 //    }
-
     private void zetBuren() {
         for (int rij = 0; rij < aantalRijen; rij++) {
             for (int kolom = 0; kolom < aantalRijen; kolom++) {
