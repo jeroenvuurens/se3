@@ -26,6 +26,10 @@ public class Vak extends JButton {
         return veld;
     }
 
+    public boolean getIsGeopend() {
+        return isGeopend;
+    }
+    
     // check of spel gewonnen is
     public void open() {
         if (!isGeopend && !veld.getGameOver() && !isGemarkeerd) {

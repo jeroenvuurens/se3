@@ -39,6 +39,12 @@ public class Veld extends JFrame {
     
     private int aantalGeopendeVakjes() {
         int count = 0;
+        for (int i = 0; i < aantalRijen; i++) {
+            for (int j = 0; j < aantalRijen; j++) {
+                if (vak[i][j].getIsGeopend())
+                    count++;
+            }
+        }
         
         return count;
     }
