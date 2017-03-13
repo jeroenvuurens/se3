@@ -30,6 +30,18 @@ public class Veld extends JFrame {
     public boolean getGameOver() {
         return gameOver;
     }
+  
+    // aantal vakjes == aantal geopende vakjes + aantal mijnen
+    public void checkGewonnen() {
+        System.out.println("check " + aantalGeopendeVakjes());
+    }
+    
+    
+    private int aantalGeopendeVakjes() {
+        int count = 0;
+        
+        return count;
+    }
     
     private void plaatsRij(int rij) {
         for (int i = 0; i < this.aantalRijen; i++) {

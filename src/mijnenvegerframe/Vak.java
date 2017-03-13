@@ -27,7 +27,6 @@ public class Vak extends JButton {
     }
 
     // check of spel gewonnen is
-    // aantal vakjes == aantal geopende vakjes + aantal mijnen
     public void open() {
         if (!isGeopend && !veld.getGameOver() && !isGemarkeerd) {
             setText(telMijnenBuren() + "");
@@ -37,6 +36,7 @@ public class Vak extends JButton {
                     buren.get(i).open();
                 }
             }
+            this.veld.checkGewonnen();
         }
     }
 
