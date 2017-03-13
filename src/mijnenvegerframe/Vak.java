@@ -13,24 +13,23 @@ public class Vak extends JButton {
     public Vak() {
         this.addActionListener(new ClickListener());
     }
-    
+
     public void addBuurman(Vak buurman) {
         buren.add(buurman);
     }
 
-    // als vakje nog niet geopend
-    // en 0 mijnen om vakje
-    // open buren van vakje
     public boolean open() {
         if (!geopend) {
+            setText(telMijnenBuren() + "");
             geopend = true;
             if (telMijnenBuren() == 0) {
-                for (Vak b : buren) {
-                    b.open();
+                for (int i = 0; i < buren.size(); i++) {
+                    buren.get(i).open();
                 }
             }
         }
         return geopend;
+
     }
 
     @Override
@@ -52,8 +51,6 @@ public class Vak extends JButton {
         return aantalMijnen;
     }
 
-    
-    
 //    public static void main(String[] args) {
 //        Vak vak1 = new Vak();
 //        Vak vak2 = new Mijn();
@@ -67,10 +64,11 @@ public class Vak extends JButton {
 //        vak2.open();
 //    }
     class ClickListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
-            setText(telMijnenBuren() + "");
+            open();
         }
-        
+
     }
 }
