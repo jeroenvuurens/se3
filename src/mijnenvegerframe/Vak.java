@@ -7,7 +7,8 @@ import javax.swing.JButton;
 
 public class Vak extends JButton {
 
-    private boolean geopend;
+    private boolean isGeopend;
+    private boolean isGemarkeerd;
     private ArrayList<Vak> buren = new ArrayList();
     private Veld veld;
 
@@ -25,11 +26,12 @@ public class Vak extends JButton {
         return veld;
     }
 
-    // extra check gameOver
+    // check of spel gewonnen is
+    // aantal vakjes == aantal geopende vakjes + aantal mijnen
     public void open() {
-        if (!geopend && !veld.getGameOver()) {
+        if (!isGeopend && !veld.getGameOver() && !isGemarkeerd) {
             setText(telMijnenBuren() + "");
-            geopend = true;
+            isGeopend = true;
             if (telMijnenBuren() == 0) {
                 for (int i = 0; i < buren.size(); i++) {
                     buren.get(i).open();
@@ -41,12 +43,19 @@ public class Vak extends JButton {
     // markeer als M
     // of onmarkeer indien gemarkeerd was
     public void markeer() {
-        
+        if (!veld.getGameOver()) {
+            if (isGemarkeerd) {
+                setText("");
+            } else {
+                setText("M");
+            }
+            isGemarkeerd = !isGemarkeerd;
+        }
     }
 
     @Override
     public String toString() {
-        if (!geopend) {
+        if (!isGeopend) {
             return "-";
         }
         return telMijnenBuren() + "";
@@ -80,7 +89,6 @@ public class Vak extends JButton {
         @Override
         public void actionPerformed(ActionEvent e) {
             int modifiers = e.getModifiers();
-            System.out.println("" + modifiers);
             if ((modifiers & ActionEvent.SHIFT_MASK) != 0) {
                 markeer();
             } else {
