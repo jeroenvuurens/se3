@@ -24,7 +24,7 @@ public class Vak extends JButton {
     protected Veld getVeld() {
         return veld;
     }
-    
+
     // extra check gameOver
     public void open() {
         if (!geopend && !veld.getGameOver()) {
@@ -36,6 +36,10 @@ public class Vak extends JButton {
                 }
             }
         }
+    }
+
+    public void markeer() {
+        
     }
 
     @Override
@@ -73,10 +77,13 @@ public class Vak extends JButton {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // check of shift ingedrukt
-            // zo ja, markeer vak als mijn M
-            
-            open();
+            int modifiers = e.getModifiers();
+            System.out.println("" + modifiers);
+            if ((modifiers & ActionEvent.SHIFT_MASK) != 0) {
+                markeer();
+            } else {
+                open();
+            }
         }
 
     }
