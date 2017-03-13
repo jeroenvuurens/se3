@@ -38,6 +38,8 @@ public class Vak extends JButton {
         }
     }
 
+    // markeer als M
+    // of onmarkeer indien gemarkeerd was
     public void markeer() {
         
     }
