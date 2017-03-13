@@ -9,8 +9,11 @@ public class Vak extends JButton {
 
     private boolean geopend;
     private ArrayList<Vak> buren = new ArrayList();
+    private Veld veld;
 
-    public Vak() {
+    // veld registereren
+    public Vak(Veld veld) {
+        this.veld = veld;
         this.addActionListener(new ClickListener());
     }
 
@@ -18,7 +21,12 @@ public class Vak extends JButton {
         buren.add(buurman);
     }
 
-    public boolean open() {
+    protected Veld getVeld() {
+        return veld;
+    }
+    
+    // extra check gamerOver
+    public void open() {
         if (!geopend) {
             setText(telMijnenBuren() + "");
             geopend = true;
@@ -28,8 +36,6 @@ public class Vak extends JButton {
                 }
             }
         }
-        return geopend;
-
     }
 
     @Override

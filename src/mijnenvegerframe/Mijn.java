@@ -7,10 +7,16 @@ package mijnenvegerframe;
  */
 public class Mijn extends Vak {
 
+    public Mijn(Veld veld) {
+        super(veld);
+    }
+
     // roep gameOver aan van veld
-    public boolean open() {
-        System.out.println("Boem!");
-        return false;
+    @Override
+    public void open() {
+        this.setText("X");
+        Veld veld = this.getVeld();
+        veld.gameOver();
     }
     
     public String toString() {

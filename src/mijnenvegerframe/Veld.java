@@ -17,6 +17,7 @@ public class Veld extends JFrame {
     private Vak[][] vak;
     private JPanel panel;
     private final int SIZE = 30;
+    private boolean gameOver = false;
 
     public Veld(int aantalRijen, int aantalMijnen) {
         this.aantalRijen = aantalRijen;
@@ -65,7 +66,7 @@ public class Veld extends JFrame {
         vak = new Vak[aantalRijen][aantalRijen];
         for (int rij = 0; rij < aantalRijen; rij++) {
             for (int kolom = 0; kolom < aantalRijen; kolom++) {
-                vak[rij][kolom] = new Vak();
+                vak[rij][kolom] = new Vak(this);
             }
         }
         legMijnen(aantalMijnen);
@@ -86,6 +87,11 @@ public class Veld extends JFrame {
         }
     }
 
+    protected void gameOver() {
+        this.gameOver = true;
+        System.out.println("Game over");
+    }
+    
     private ArrayList<Vak> geefBuren(int rij, int kolom) {
         ArrayList<Vak> buren = new ArrayList();
         if (rij > 0) // boven
@@ -129,7 +135,7 @@ public class Veld extends JFrame {
             int rij = random.nextInt(aantalRijen);
             int kolom = random.nextInt(aantalRijen);
             if (!(vak[rij][kolom] instanceof Mijn)) {
-                vak[rij][kolom] = new Mijn();
+                vak[rij][kolom] = new Mijn(this);
                 aantalMijnen--;
             }
         }
