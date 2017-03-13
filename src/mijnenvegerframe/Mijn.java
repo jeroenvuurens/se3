@@ -1,6 +1,5 @@
 package mijnenvegerframe;
 
-
 /**
  *
  * @author Jeroen
@@ -11,16 +10,17 @@ public class Mijn extends Vak {
         super(veld);
     }
 
-    // roep gameOver aan van veld
     @Override
     public void open() {
-        this.setText("X");
-        Veld veld = this.getVeld();
-        veld.gameOver();
+        if (!this.getVeld().getGameOver()) {
+            this.setText("X");
+            Veld veld = this.getVeld();
+            veld.gameOver();
+        }
     }
-    
+
     public String toString() {
         return "*";
     }
-    
+
 }

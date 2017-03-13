@@ -25,9 +25,9 @@ public class Vak extends JButton {
         return veld;
     }
     
-    // extra check gamerOver
+    // extra check gameOver
     public void open() {
-        if (!geopend) {
+        if (!geopend && !veld.getGameOver()) {
             setText(telMijnenBuren() + "");
             geopend = true;
             if (telMijnenBuren() == 0) {
@@ -73,6 +73,9 @@ public class Vak extends JButton {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            // check of shift ingedrukt
+            // zo ja, markeer vak als mijn M
+            
             open();
         }
 

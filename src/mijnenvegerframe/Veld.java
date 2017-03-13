@@ -27,6 +27,10 @@ public class Veld extends JFrame {
         initComponents();
     }
 
+    public boolean getGameOver() {
+        return gameOver;
+    }
+    
     private void plaatsRij(int rij) {
         for (int i = 0; i < this.aantalRijen; i++) {
             panel.add(vak[rij][i]);
